@@ -1,4 +1,4 @@
-namespace RegexForge.Core;
+﻿namespace RegexForge.Core;
 
 /// <summary>
 /// Represents a named regular expression pattern exposed as a raw string.

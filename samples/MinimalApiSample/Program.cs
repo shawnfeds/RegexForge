@@ -1,4 +1,4 @@
-using RegexForge.Validation;
+﻿using RegexForge.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();

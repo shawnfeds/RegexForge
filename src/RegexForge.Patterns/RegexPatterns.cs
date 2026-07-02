@@ -1,4 +1,4 @@
-#pragma warning disable CA1720 // Identifier contains type name — intentional for a pattern catalog
+﻿#pragma warning disable CA1720 // Identifier contains type name — intentional for a pattern catalog
 
 namespace RegexForge.Patterns;
 

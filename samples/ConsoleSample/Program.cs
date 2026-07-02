@@ -1,4 +1,4 @@
-using RegexForge.Validation;
+﻿using RegexForge.Validation;
 
 Console.WriteLine("RegexForge Console Sample");
 Console.WriteLine("==========================\n");
