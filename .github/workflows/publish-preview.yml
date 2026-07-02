@@ -1,0 +1,68 @@
+name: Publish Preview
+
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  publish-preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Compute preview version
+        id: version
+        run: echo "suffix=preview.$(date +%Y%m%d%H%M%S)" >> "$GITHUB_OUTPUT"
+
+      - name: Pack (Core)
+        run: >
+          dotnet pack src/RegexForge.Core/RegexForge.Core.csproj
+          -c Release
+          --version-suffix ${{ steps.version.outputs.suffix }}
+          -o ./artifacts
+
+      - name: Pack (Patterns)
+        run: >
+          dotnet pack src/RegexForge.Patterns/RegexForge.Patterns.csproj
+          -c Release
+          --version-suffix ${{ steps.version.outputs.suffix }}
+          -o ./artifacts
+
+      - name: Pack (Validation)
+        run: >
+          dotnet pack src/RegexForge.Validation/RegexForge.Validation.csproj
+          -c Release
+          --version-suffix ${{ steps.version.outputs.suffix }}
+          -o ./artifacts
+
+      - name: Add GitHub Packages source
+        run: >
+          dotnet nuget add source
+          --username ${{ github.actor }}
+          --password ${{ secrets.GITHUB_TOKEN }}
+          --store-password-in-clear-text
+          --name github
+          "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+
+      - name: Push preview packages
+        run: >
+          dotnet nuget push "./artifacts/*.nupkg"
+          --source github
+          --skip-duplicate

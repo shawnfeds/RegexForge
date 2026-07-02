@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net8.0;net10.0</TargetFrameworks>
+    <AssemblyName>RegexForge.Validation</AssemblyName>
+    <RootNamespace>RegexForge.Validation</RootNamespace>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+
+    <PackageId>RegexForge.Validation</PackageId>
+    <Description>Strongly-typed, high-performance regex validators (EmailPattern, GuidPattern, UrlPattern, etc.) with IsValid, Match, Replace, Split and Count operations built in.</Description>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RegexForge.Core\RegexForge.Core.csproj" />
+    <ProjectReference Include="..\RegexForge.Patterns\RegexForge.Patterns.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

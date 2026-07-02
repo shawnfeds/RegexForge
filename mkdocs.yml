@@ -1,0 +1,42 @@
+site_name: RegexForge
+site_description: Production-ready regex patterns and validators for .NET
+repo_url: https://github.com/shawnfeds/RegexForge
+repo_name: shawnfeds/RegexForge
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+nav:
+  - Home: index.md
+  - Guides:
+      - Getting Started: guides/getting-started.md
+      - Migration from raw Regex: guides/migration.md
+  - Patterns:
+      - Overview: patterns/index.md
+      - Identity: patterns/identity.md
+      - Internet: patterns/internet.md
+      - Programming: patterns/programming.md
+      - Numbers: patterns/numbers.md
+      - Dates: patterns/dates.md
+      - Security: patterns/security.md
+      - Payments: patterns/payments.md
+      - Localization: patterns/localization.md
+  - Performance: performance.md
+  - Changelog: changelog.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - tables

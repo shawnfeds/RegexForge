@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>RegexForge.Benchmarks</RootNamespace>
+    <NoWarn>$(NoWarn);CA1707;CA1822</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\RegexForge.Core\RegexForge.Core.csproj" />
+    <ProjectReference Include="..\..\src\RegexForge.Patterns\RegexForge.Patterns.csproj" />
+    <ProjectReference Include="..\..\src\RegexForge.Validation\RegexForge.Validation.csproj" />
+  </ItemGroup>
+
+</Project>

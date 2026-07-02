@@ -1,0 +1,42 @@
+<Project>
+  <PropertyGroup>
+    <Authors>Shawn Fernandes</Authors>
+    <Company>Shawn Fernandes</Company>
+    <Product>RegexForge</Product>
+    <Copyright>Copyright © 2026 Shawn Fernandes</Copyright>
+
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisMode>Recommended</AnalysisMode>
+
+    <!-- Suppress NuGet vulnerability fetch when not in CI (offline/firewall safe) -->
+    <NuGetAudit Condition="'$(CI)' != 'true'">false</NuGetAudit>
+
+    <PackageProjectUrl>https://github.com/shawnfeds/RegexForge</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/shawnfeds/RegexForge</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>regex;validation;patterns;dotnet;source-generator</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591;IDE0001;IDE0002;IDE0003;IDE0004;IDE0005;IDE0007;IDE0008;IDE0009;IDE0010;IDE0011;IDE0017;IDE0018;IDE0019;IDE0028;IDE0029;IDE0030;IDE0031;IDE0032;IDE0034;IDE0036;IDE0037;IDE0039;IDE0040;IDE0041;IDE0042;IDE0044;IDE0045;IDE0046;IDE0047;IDE0048;IDE0049;IDE0051;IDE0052;IDE0053;IDE0054;IDE0055;IDE0056;IDE0057;IDE0058;IDE0059;IDE0060;IDE0061;IDE0062;IDE0063;IDE0064;IDE0065;IDE0066;IDE0070;IDE0071;IDE0072;IDE0073;IDE0074;IDE0075;IDE0076;IDE0077;IDE0078;IDE0079;IDE0080;IDE0082;IDE0083;IDE0084;IDE0090;IDE0100;IDE0110;IDE0120;IDE0130;IDE0150;IDE0160;IDE0161;IDE0200;IDE0210;IDE0220;IDE0230;IDE0240;IDE0250;IDE0251;IDE0260;IDE0270;IDE0280;IDE0290;IDE0300;IDE0301;IDE0302;IDE0303;IDE0304;IDE0305;IDE1005;IDE1006</NoWarn>
+
+    <!-- SourceLink only active inside a git repo -->
+    <EnableSourceLink Condition="'$(CI)' != 'true' AND !Exists('$(MSBuildThisFileDirectory).git')">false</EnableSourceLink>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(EnableSourceLink)' != 'false'">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net8.0;net10.0</TargetFrameworks>
+    <AssemblyName>RegexForge.Patterns</AssemblyName>
+    <RootNamespace>RegexForge.Patterns</RootNamespace>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+
+    <PackageId>RegexForge.Patterns</PackageId>
+    <Description>Production-tested regex pattern constants for common formats: email, URL, GUID, JWT, semantic version, and more.</Description>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RegexForge.Core\RegexForge.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

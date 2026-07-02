@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>RegexForge.Core</AssemblyName>
+    <RootNamespace>RegexForge.Core</RootNamespace>
+
+    <PackageId>RegexForge.Core</PackageId>
+    <Description>Core abstractions and interfaces for RegexForge. No predefined patterns — just the contracts that all RegexForge packages implement.</Description>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

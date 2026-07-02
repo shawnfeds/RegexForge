@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>RegexForge.Samples.MinimalApi</RootNamespace>
+    <!-- CS0260: ASP.NET Core source generator emits partial Program; suppress in samples -->
+    <NoWarn>$(NoWarn);CS0260</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\RegexForge.Patterns\RegexForge.Patterns.csproj" />
+    <ProjectReference Include="..\..\src\RegexForge.Validation\RegexForge.Validation.csproj" />
+  </ItemGroup>
+
+</Project>
